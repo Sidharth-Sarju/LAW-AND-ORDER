@@ -1,0 +1,41 @@
+
+{% extends 'lawyer/law_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<h2 align="center">New Appoinments</h2>
+
+
+
+<table class="table table-bordered table-striped table-hover" style="width: 900px; margin-left: 100px;" >
+
+
+		<th class="info" style="background-color: lightgreen;">Client Name</th>
+
+		<th class="info" style="background-color: lightgreen;">Contact</th>
+		<th class="info" style="background-color: lightgreen;">Reason</th>
+		<th class="info" style="background-color: lightgreen;">Schedule Time</th>
+		<th class="info" style="background-color: lightgreen;">Schedule Date</th>
+		<th class="info" style="background-color: lightgreen;">Confirm</th>
+		<th class="info" style="background-color: lightgreen;">Reject</th>
+
+
+{% for li in l %}
+		<tr>
+
+			<td>{{ li.client.user.first_name }}</td>
+
+			<td>{{ li.client.address }},{{ li.client.phone }},{{ li.client.user.email }}</td>
+			<td>{{ li.reason }}</td>
+			<td>{{ li.times }}</td>
+			<td>{{ li.dates }}</td>
+			<td><button><a href="AcceptAppo?id={{ li.id }}" >Confirm Appoinment </a></button></td>
+			<td><button><a href="RejectAppo?id={{ li.id }}" >Reject Appoinment </a></button></td>
+
+		</tr>
+	{% endfor %}
+
+	</table>
+{% endblock %}

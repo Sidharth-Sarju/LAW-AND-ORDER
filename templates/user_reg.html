@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<aside id="colorlib-hero" class="js-fullheight">
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+		   	<li style="background-image: url({% static 'images/img_bg_1.jpg' %});">
+		   		<div class="overlay-gradient"></div>
+		   		<div class="container">
+		   			<div class="row">
+			   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
+			   				<div class="slider-text-inner">
+			   					<h1>User Register</h1>
+
+									   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+            </ul>
+		 </div>
+	</aside>
+  <h1 style="margin-top: 100px;" align="center">User Register</h1>
+  <form action="" method="post" align="center">
+                                    {% csrf_token %}
+								<div >
+									<input style="width: 500px;color: black" type="text" name="name" placeholder="Enter Your Name" required="" autocomplete="off"><br><br>
+
+									<input style="width: 500px;color: black" type="text" name="address" placeholder="address" required="" autocomplete="off"><br><br>
+									<textarea style="width: 500px;color: black" type="text" pattern="[6-9]{1}[0-9]{9}" name="phone" placeholder="Phone Number"  autocomplete="off" required=""></textarea><br><br>
+
+									<input style="width: 500px;color: black"  autocomplete="off" type="email" name="email" placeholder="Email" required=""><br><br>
+
+									<input style="width: 500px;color: black" type="password"  autocomplete="off" name="password" placeholder="Set Password" required=""><br><br>
+                                    <input style="width: 500px;color: black" type="password"  autocomplete="off" name="con_password" placeholder="confirm Password" required=""><br><br>
+									<button style="background-color:black;border-radius: 25px;" type="Submit" name="register">Sing Up</button>
+								</div>
+								</form>
+
+{% endblock %}

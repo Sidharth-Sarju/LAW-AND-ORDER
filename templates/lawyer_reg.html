@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<aside id="colorlib-hero" class="js-fullheight">
+		<div class="flexslider js-fullheight">
+			<ul class="slides" style="height: 900px;">
+		   	<li style="  background-image: url({% static 'images/img_bg_1.jpg' %});" >
+{#                <li style="background-color: #449d44;height: 900px;">#}
+
+		   		<div class="container" >
+		   			<div class="row" >
+			   			<div style="height: 50px">
+			   				<div class="slider-text-inner" style="margin-bottom: 100px;height: 900px;">
+
+									   				</div>
+			   			</div>
+			   		</div>
+		   		</div>
+		   	</li>
+{#                <div style="width: 100%; height:200px;"></div>#}
+            </ul>
+		 </div>
+	</aside>
+    <h1 style="margin-top: 100px;" align="center">Lawyer Register</h1>
+			   					<form action="" method="post" enctype="multipart/form-data" align="center" >
+                                    {% csrf_token %}
+								<div style="height: 900px;">
+									<br>
+									<input style="width: 500px;color: black" type="text" name="name" placeholder="Enter Your Name" required=""  autocomplete="off"><br><br>
+									<input style="width: 500px;color: black"  autocomplete="off" type="text" name="company" placeholder="Company/Firm Name" required=""><br><br>
+
+									<textarea style="width: 500px;color: black" type="text" autocomplete="off" name="address" placeholder="address" required=""></textarea><br><br>
+									<input style="width: 500px;color: black" type="text" autocomplete="off" pattern="[6-9]{1}[0-9]{9}" name="phone" placeholder="Phone Number" required=""><br><br>
+
+									<input style="width: 500px;color: black" type="email" autocomplete="off" name="email" placeholder="Email" required=""><br><br>
+
+									<input style="width: 500px;color: black" type="text"  name="edu" value="llb"  placeholder="Education"  required=""><br><br>
+									<input style="width: 500px;color: black" type="text" autocomplete="off" name="parea" placeholder="Practice Area" required=""><br><br>
+                                     <label for="lname">Specialization:</label>
+                                     <select name="speci" id="iname" type="text" style="width: 350px;height: 50px;" >
+  <option value="Criminal_Low">Criminal Low</option>
+  <option value="Coporate_Low">Coporate Low</option>
+  <option value="Cyber_Low">Cyber Low</option>
+  <option value="Intellectual_Property_Low">Intellectual Property Low</option>
+   <option value="Labour_Low">Labour Low</option>
+{#  <option value="audi">Audi</option>#}
+</select><br><br>
+
+{#									<input style="width: 500px;color: black" type="text" autocomplete="off" name="speci" placeholder="Specialization" required=""><br><br>#}
+
+                                    <textarea style="width: 500px;color: black" type="text" autocomplete="off" name="exper_lowyer" placeholder="Lowyer and Experience" required=""></textarea><br><br>
+                                    <label>Upload Photo</label>
+									<input style="width: 500px;color: black; margin-left: 650px;" type="file" title="Upload Photo" name="photo" placeholder="photo" required=""><br>
+									<input style="width: 500px;color: black" type="password" name="password" placeholder="Set Password" required=""><br><br>
+                                    <input style="width: 500px;color: black" type="password" name="con_password" placeholder="Confirm Password" required=""><br><br>
+									<button style="background-color:black;border-radius: 25px;" name="register" type="Submit">Sing Up</button>
+								</div>
+								</form>
+
+
+
+{% endblock %}
